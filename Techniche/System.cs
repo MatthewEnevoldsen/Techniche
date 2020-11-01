@@ -6,6 +6,9 @@ using Techniche.Widgets;
 
 namespace Techniche
 {
+    //Made the assumption that the input data comes in the forms of classes from this assembly. 
+    //If they are unvalidated raw data classes; otherwise a painful casting based validation
+    //step would probably be needed.
     public class System
     {
         public string BuildBill(ICollection<Widget> widgets)
