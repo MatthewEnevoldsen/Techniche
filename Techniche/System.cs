@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using Techniche.Widgets;
 
 namespace Techniche
@@ -19,12 +18,10 @@ Bill of Materials
 ----------------------------------------------------------------
 " + string.Join("\r\n", widgets) + @"
 ----------------------------------------------------------------";
-
-
             }
             catch (Exception e)
             {
-                File.WriteAllText(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss")+ ".txt",
+                File.WriteAllText(DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".txt",
                     e.ToString());
                 return "+++++Abort+++++";
             }

@@ -1,6 +1,6 @@
 ﻿namespace Techniche.Widgets
 {
-    static class Validator
+    internal static class Validator
     {
         public static bool InRangeInc(int value, int min, int max, string argName)
         {
@@ -11,6 +11,5 @@
         {
             return value > 0;
         }
-
     }
 }

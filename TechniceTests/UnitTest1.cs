@@ -7,17 +7,9 @@ namespace TechniceTests
 {
     public class Tests
     {
-        Techniche.System _system = new Techniche.System();
-        Widget[] _badWidgets = { new Square(-1233, -123, -123) };
-        private Widget[] _givenInput = {
-            new Rectangle(10, 10, 30, 40),
-            new Square(15, 30, 35),
-            new Ellipse(100, 150, 300, 200),
-            new Circle(1, 1, 300),
-            new Textbox(5, 5, 200, 100, "sample text")
+        private readonly Widget[] _badWidgets = {new Square(-1233, -123, -123)};
 
-        };
-        private string _givenExpected = @"----------------------------------------------------------------
+        private readonly string _givenExpected = @"----------------------------------------------------------------
 Bill of Materials
 ----------------------------------------------------------------
 Rectangle (10,10) width=30 height=40
@@ -26,7 +18,18 @@ Ellipse (100,150) diameterH = 300 diameterV = 200
 Circle (1,1) size=300
 Textbox (5,5) width=200 height=100 text=""sample text""
 ----------------------------------------------------------------";
-        
+
+        private readonly Widget[] _givenInput =
+        {
+            new Rectangle(10, 10, 30, 40),
+            new Square(15, 30, 35),
+            new Ellipse(100, 150, 300, 200),
+            new Circle(1, 1, 300),
+            new Textbox(5, 5, 200, 100, "sample text")
+        };
+
+        private readonly Techniche.System _system = new Techniche.System();
+
         [Test]
         public void GivenExample()
         {
@@ -51,6 +54,7 @@ Textbox (5,5) width=200 height=100 text=""sample text""
             var afterCount = Directory.GetFiles(".\\", "*.txt").Length;
             Assert.AreEqual(initialCount + 1, afterCount);
         }
+
         [Test]
         public void ErrorMessage()
         {
@@ -63,12 +67,14 @@ Textbox (5,5) width=200 height=100 text=""sample text""
             var s = new Square(1, 1, 0);
             Assert.IsFalse(s.Validate());
         }
+
         [Test]
         public void TextboxValidationHeightPositive()
         {
             var s = new Textbox(1, 1, 1, 0);
             Assert.IsFalse(s.Validate());
         }
+
         [Test]
         public void TextboxValidationWidthPositive()
         {

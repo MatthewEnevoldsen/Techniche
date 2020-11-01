@@ -2,6 +2,11 @@
 {
     public class Circle : Widget
     {
+        public Circle(int posX, int posY, int diameter) : base(posX, posY)
+        {
+            Diameter = diameter;
+        }
+
         public int Diameter { get; }
 
 
@@ -14,11 +19,6 @@
         {
             return base.Validate() &&
                    Validator.Positive(Diameter, nameof(Diameter));
-        }
-
-        public Circle(int posX, int posY, int diameter) : base(posX, posY)
-        {
-            Diameter = diameter;
         }
     }
 }

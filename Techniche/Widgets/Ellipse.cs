@@ -1,7 +1,13 @@
 ﻿namespace Techniche.Widgets
 {
-    public class Ellipse  : Widget
+    public class Ellipse : Widget
     {
+        public Ellipse(int posX, int posY, int horizontalDiameter, int verticalDiameter) : base(posX, posY)
+        {
+            HorizontalDiameter = horizontalDiameter;
+            VerticalDiameter = verticalDiameter;
+        }
+
         public int HorizontalDiameter { get; }
         public int VerticalDiameter { get; }
 
@@ -15,12 +21,6 @@
             return base.Validate() &&
                    Validator.Positive(HorizontalDiameter, nameof(HorizontalDiameter)) &&
                    Validator.Positive(VerticalDiameter, nameof(VerticalDiameter));
-        }
-
-        public Ellipse(int posX, int posY, int horizontalDiameter, int verticalDiameter) : base(posX, posY)
-        {
-            HorizontalDiameter = horizontalDiameter;
-            VerticalDiameter = verticalDiameter;
         }
     }
 }
