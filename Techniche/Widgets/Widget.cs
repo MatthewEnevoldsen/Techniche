@@ -2,17 +2,21 @@
 {
     public abstract class Widget
     {
-        protected Widget(Position position)
+        protected Widget(int posX, int posY)
         {
-            Position = position;
+            PositionX = posX;
+            PositionY = posY;
         }
 
-        public Position Position { get; }
+        public int PositionX { get; }
+        public int PositionY { get; }
 
         public virtual bool Validate()
         {
-            return Validator.InRangeInc(Position.X, 0, 1000, nameof(Position.X)) &&
-            Validator.InRangeInc(Position.Y, 0, 1000, nameof(Position.Y));
+            return Validator.InRangeInc(PositionX, 0, 1000, nameof(PositionX)) &&
+            Validator.InRangeInc(PositionY, 0, 1000, nameof(PositionY));
         }
+
+        protected string PositionString => $"({PositionX},{PositionY})";
     }
 }

@@ -4,20 +4,21 @@
     {
         public int Diameter { get; }
 
-        public Circle(Position position, int diameter) : base(position)
-        {
-            Diameter = diameter;
-        }
 
         public override string ToString()
         {
-            return $"Circle {Position} size={Diameter}";
+            return $"Circle {PositionString} size={Diameter}";
         }
 
         public override bool Validate()
         {
             return base.Validate() &&
                    Validator.Positive(Diameter, nameof(Diameter));
+        }
+
+        public Circle(int posX, int posY, int diameter) : base(posX, posY)
+        {
+            Diameter = diameter;
         }
     }
 }

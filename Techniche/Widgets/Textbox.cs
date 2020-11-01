@@ -6,10 +6,10 @@
 
         public override string ToString()
         {
-            return $"Textbox {Position} width={Width} height={Height} text=\"{Text}\"";
+            return $"Textbox {PositionString} width={Width} height={Height} text=\"{Text}\"";
         }
 
-        public Textbox(Position position, int width, int height, string text = null) : base(position, width, height)
+        public Textbox(int posX, int posY, int width, int height, string text = null) : base(posX, posY, width, height)
         {
             Text = text ?? "";
         }

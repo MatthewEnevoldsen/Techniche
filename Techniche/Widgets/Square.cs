@@ -2,22 +2,21 @@
 {
     public class Square  : Widget
     {
-
         public int Width { get; }
-
-        public Square(Position position, int width) : base(position)
-        {
-            Width = width;
-        }
 
         public override string ToString()
         {
-            return $"Square {Position} size={Width}";
+            return $"Square {PositionString} size={Width}";
         }
         public override bool Validate()
         {
             return base.Validate() &&
                    Validator.Positive(Width, nameof(Width));
+        }
+
+        public Square(int posX, int posY, int width) : base(posX, posY)
+        {
+            Width = width;
         }
     }
 }

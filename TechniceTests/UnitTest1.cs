@@ -8,13 +8,13 @@ namespace TechniceTests
     public class Tests
     {
         Techniche.System _system = new Techniche.System();
-        Widget[] _badWidgets = { new Square(new Position(-1233, -123), -123) };
+        Widget[] _badWidgets = { new Square(-1233, -123, -123) };
         private Widget[] _givenInput = {
-            new Rectangle(new Position(10, 10), 30, 40),
-            new Square(new Position(15, 30), 35),
-            new Ellipse(new Position(100, 150), 300, 200),
-            new Circle(new Position(1, 1), 300),
-            new Textbox(new Position(5, 5), 200, 100, "sample text")
+            new Rectangle(10, 10, 30, 40),
+            new Square(15, 30, 35),
+            new Ellipse(100, 150, 300, 200),
+            new Circle(1, 1, 300),
+            new Textbox(5, 5, 200, 100, "sample text")
 
         };
         private string _givenExpected = @"----------------------------------------------------------------
@@ -60,20 +60,19 @@ Textbox (5,5) width=200 height=100 text=""sample text""
         [Test]
         public void SquareValidationWidthPositive()
         {
-            var s = new Square(new Position(1, 1), 0);
+            var s = new Square(1, 1, 0);
             Assert.IsFalse(s.Validate());
         }
         [Test]
         public void TextboxValidationHeightPositive()
         {
-            var s = new Textbox(new Position(1, 1), 1, 0);
+            var s = new Textbox(1, 1, 1, 0);
             Assert.IsFalse(s.Validate());
         }
         [Test]
         public void TextboxValidationWidthPositive()
         {
-            var s = new Textbox(new Position(1, 1), 0, 1);
-            Assert.IsFalse(s.Validate());
+            var s = new Textbox(1, 1, 0, 1);
         }
     }
 }
